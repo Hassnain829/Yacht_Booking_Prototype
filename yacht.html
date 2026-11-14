@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yacht Details — Chicago Yacht Booking</title>
+  <meta name="description" content="Yacht details, photos, amenities, pricing and live availability.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="bg-shell font-sans text-navy-900 antialiased" data-page="yachts">
+  <div id="site-header"></div>
+
+  <!-- Laravel: resources/views/yachts/show.blade.php — $yacht passed from YachtController@show -->
+  <main class="pb-24 lg:pb-0">
+    <section class="bg-navy-950 pb-10 pt-36 text-white md:pt-40">
+      <div class="container">
+        <nav class="flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-white/50" aria-label="Breadcrumb">
+          <a href="index.html" class="hover:text-white">Home</a><span>/</span><a href="yachts.html" class="hover:text-white">Yachts</a><span>/</span><span id="crumb-name" class="text-brass-300"></span>
+        </nav>
+        <div id="y-head" class="mt-5"></div>
+        <div id="y-gallery" class="mt-8"></div>
+      </div>
+    </section>
+
+    <section class="py-14 md:py-20">
+      <div class="container grid gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
+        <div id="y-main" class="min-w-0 space-y-14"></div>
+        <aside><div id="y-book" class="lg:sticky lg:top-28"></div></aside>
+      </div>
+    </section>
+
+    <section class="border-t border-navy-100 bg-white py-20">
+      <div class="container">
+        <div class="flex items-end justify-between gap-6">
+          <h2 class="font-display text-4xl text-navy-950">You may also like</h2>
+          <a href="yachts.html" class="hidden items-center gap-2 text-sm font-bold text-brass-600 hover:text-brass-700 sm:inline-flex">All yachts <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+        <div id="similar" class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile sticky booking bar -->
+  <div id="mobile-book-bar" class="fixed inset-x-0 bottom-0 z-40 border-t border-navy-100 bg-white/95 p-4 backdrop-blur lg:hidden"></div>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/pages/yacht.js"></script>
+</body>
+</html>

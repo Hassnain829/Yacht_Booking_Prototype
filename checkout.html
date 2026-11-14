@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Chicago Yacht Booking</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="bg-shell font-sans text-navy-900 antialiased" data-page="checkout" data-header="solid">
+  <div id="site-header"></div>
+
+  <!-- Laravel: resources/views/booking/checkout.blade.php
+       POST /checkout -> BookingController@store (re-validate availability, re-calculate quote server-side,
+       create Stripe PaymentIntent for the deposit, save booking, send confirmation email) -->
+  <main class="pb-24 pt-28">
+    <section class="border-b border-navy-100 bg-white">
+      <div class="container flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
+        <ol class="flex items-center gap-2 text-xs font-bold sm:gap-3 sm:text-sm" aria-label="Progress">
+          <li><a id="edit-link" href="booking.html" class="flex items-center gap-2 text-navy-500 hover:text-navy-950"><span class="grid h-7 w-7 place-items-center rounded-full bg-navy-950 text-white"><i data-lucide="check" class="h-4 w-4"></i></span>Booking</a></li>
+          <li class="h-px w-6 bg-navy-200 sm:w-10"></li>
+          <li class="flex items-center gap-2 text-navy-950"><span class="grid h-7 w-7 place-items-center rounded-full bg-brass-400 text-navy-950">2</span>Checkout</li>
+          <li class="h-px w-6 bg-navy-200 sm:w-10"></li>
+          <li class="flex items-center gap-2 text-navy-400"><span class="grid h-7 w-7 place-items-center rounded-full bg-navy-100">3</span>Confirmed</li>
+        </ol>
+        <p class="inline-flex items-center gap-2 self-start rounded-full bg-brass-50 px-4 py-2 text-xs font-bold text-brass-800 ring-1 ring-brass-200 md:self-auto">
+          <i data-lucide="timer" class="h-4 w-4"></i>We're holding your time slot for <span id="hold-timer" class="tabular-nums">15:00</span>
+        </p>
+      </div>
+    </section>
+
+    <div id="demo-notice" class="container mt-6 hidden">
+      <div class="flex flex-col gap-3 rounded-2xl bg-navy-950 px-5 py-4 text-sm text-white sm:flex-row sm:items-center sm:justify-between">
+        <p class="flex items-center gap-2"><i data-lucide="info" class="h-4 w-4 text-brass-300"></i>Showing a sample booking for the demo.</p>
+        <a href="booking.html" class="font-bold text-brass-300 hover:underline">Start your own booking →</a>
+      </div>
+    </div>
+
+    <section class="pt-8">
+      <form id="checkout-form" class="container grid gap-8 lg:grid-cols-[minmax(0,1fr)_420px]" novalidate>
+        <div class="min-w-0 space-y-6">
+          <div>
+            <h1 class="font-display text-4xl text-navy-950 md:text-5xl">Secure checkout</h1>
+            <p class="mt-2 text-navy-500">You're almost on the water. Review your details and confirm below.</p>
+          </div>
+
+          <!-- 1. Contact -->
+          <fieldset class="rounded-[2rem] bg-white p-6 shadow-card ring-1 ring-navy-100 md:p-8">
+            <legend class="sr-only">Contact details</legend>
+            <div class="flex items-center gap-3"><span class="grid h-8 w-8 place-items-center rounded-full bg-navy-950 text-xs font-extrabold text-white">1</span><h2 class="text-xl font-extrabold text-navy-950">Lead guest details</h2></div>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+              <label class="block"><span class="text-sm font-bold text-navy-800">First name *</span><input name="firstName" required autocomplete="given-name" class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Required</span></label>
+              <label class="block"><span class="text-sm font-bold text-navy-800">Last name *</span><input name="lastName" required autocomplete="family-name" class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Required</span></label>
+              <label class="block"><span class="text-sm font-bold text-navy-800">Email *</span><input name="email" type="email" required autocomplete="email" placeholder="you@email.com" class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Enter a valid email</span></label>
+              <label class="block"><span class="text-sm font-bold text-navy-800">Mobile phone *</span><input name="phone" type="tel" required autocomplete="tel" placeholder="(312) 000-0000" class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Enter a valid phone number</span></label>
+            </div>
+            <p class="mt-4 flex items-center gap-2 text-xs text-navy-500"><i data-lucide="message-circle" class="h-4 w-4 text-brass-500"></i>Your captain will text this number the day before your charter.</p>
+          </fieldset>
+
+          <!-- 2. Trip details -->
+          <fieldset class="rounded-[2rem] bg-white p-6 shadow-card ring-1 ring-navy-100 md:p-8">
+            <legend class="sr-only">Trip details</legend>
+            <div class="flex items-center gap-3"><span class="grid h-8 w-8 place-items-center rounded-full bg-navy-950 text-xs font-extrabold text-white">2</span><h2 class="text-xl font-extrabold text-navy-950">Trip details</h2></div>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+              <label class="block"><span class="text-sm font-bold text-navy-800">Occasion</span>
+                <select name="occasion" class="mt-2 w-full rounded-xl border border-navy-200 bg-white px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100">
+                  <option value="">Select (optional)</option><option>Birthday</option><option>Bachelorette / Bachelor</option><option>Anniversary</option><option>Proposal</option><option>Corporate event</option><option>Family outing</option><option>Other</option>
+                </select></label>
+              <label class="block"><span class="text-sm font-bold text-navy-800">How did you hear about us?</span>
+                <select name="heard" class="mt-2 w-full rounded-xl border border-navy-200 bg-white px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100">
+                  <option value="">Select (optional)</option><option>Google</option><option>Instagram</option><option>Friend / referral</option><option>Returning guest</option><option>Other</option>
+                </select></label>
+              <label class="block sm:col-span-2"><span class="text-sm font-bold text-navy-800">Notes for your captain</span>
+                <textarea name="notes" rows="3" placeholder="Dietary needs, surprises, accessibility…" class="mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"></textarea></label>
+            </div>
+          </fieldset>
+
+          <!-- 3. Gratuity -->
+          <fieldset class="rounded-[2rem] bg-white p-6 shadow-card ring-1 ring-navy-100 md:p-8">
+            <legend class="sr-only">Crew gratuity</legend>
+            <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+              <div class="flex items-center gap-3"><span class="grid h-8 w-8 place-items-center rounded-full bg-navy-950 text-xs font-extrabold text-white">3</span><h2 class="text-xl font-extrabold text-navy-950">Crew gratuity</h2></div>
+              <p class="text-xs font-semibold text-navy-500">Optional · 100% goes to your captain &amp; crew</p>
+            </div>
+            <div id="gratuity-options" class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4"></div>
+          </fieldset>
+
+          <!-- 4. Payment -->
+          <fieldset class="rounded-[2rem] bg-white p-6 shadow-card ring-1 ring-navy-100 md:p-8">
+            <legend class="sr-only">Payment</legend>
+            <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+              <div class="flex items-center gap-3"><span class="grid h-8 w-8 place-items-center rounded-full bg-navy-950 text-xs font-extrabold text-white">4</span><h2 class="text-xl font-extrabold text-navy-950">Payment</h2></div>
+              <p class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700"><i data-lucide="lock" class="h-3.5 w-3.5"></i>256-bit SSL encrypted</p>
+            </div>
+
+            <div id="pay-plans" class="mt-6 grid gap-3 sm:grid-cols-2"></div>
+
+            <div class="mt-6 grid gap-5 sm:grid-cols-6">
+              <label class="block sm:col-span-6"><span class="text-sm font-bold text-navy-800">Card number *</span>
+                <span class="relative mt-2 block">
+                  <input name="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19" required class="field w-full rounded-xl border border-navy-200 py-3.5 pl-4 pr-20 text-sm tracking-wider focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100">
+                  <span id="card-brand" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-md bg-navy-50 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider text-navy-400">Card</span>
+                </span>
+                <span class="err mt-1 hidden text-xs font-semibold text-red-600">Enter a valid card number</span>
+              </label>
+              <label class="block sm:col-span-2"><span class="text-sm font-bold text-navy-800">Expiry *</span><input name="cardExp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" maxlength="7" required class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Invalid date</span></label>
+              <label class="block sm:col-span-2"><span class="text-sm font-bold text-navy-800">CVC *</span><input name="cardCvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" required class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">3–4 digits</span></label>
+              <label class="block sm:col-span-2"><span class="text-sm font-bold text-navy-800">ZIP *</span><input name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="60601" maxlength="10" required class="field mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Required</span></label>
+            </div>
+            <p class="mt-4 rounded-xl bg-navy-50 px-4 py-3 text-xs text-navy-500"><strong class="text-navy-800">Demo mode:</strong> no real payment is taken. Use card <button type="button" id="fill-demo" class="font-bold text-brass-700 underline">4242 4242 4242 4242</button>, any future expiry and any CVC.</p>
+          </fieldset>
+
+          <!-- 5. Agreement -->
+          <fieldset class="rounded-[2rem] bg-white p-6 shadow-card ring-1 ring-navy-100 md:p-8">
+            <legend class="sr-only">Agreements</legend>
+            <label class="flex cursor-pointer items-start gap-3">
+              <input type="checkbox" name="agree" required class="field mt-0.5 h-5 w-5 shrink-0 rounded border-navy-300 accent-navy-950">
+              <span class="text-sm text-navy-700">I agree to the <a href="pricing.html#policies" target="_blank" class="font-bold text-navy-950 underline">Cancellation &amp; Weather Policy</a> and the passenger safety waiver, and confirm all guests will follow the captain's instructions. *
+                <span class="err mt-1 hidden text-xs font-semibold text-red-600">Please accept to continue</span></span>
+            </label>
+            <label class="mt-4 flex cursor-pointer items-start gap-3">
+              <input type="checkbox" name="marketing" class="mt-0.5 h-5 w-5 shrink-0 rounded border-navy-300 accent-navy-950">
+              <span class="text-sm text-navy-700">Send me seasonal deals and fireworks-night alerts (no spam, unsubscribe anytime).</span>
+            </label>
+            <button id="pay-btn" class="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-brass-400 px-8 py-5 text-base font-extrabold text-navy-950 shadow-glow transition hover:-translate-y-0.5 hover:bg-brass-300 disabled:cursor-wait disabled:opacity-80">
+              <i data-lucide="lock" class="h-5 w-5"></i><span id="pay-label">Pay &amp; confirm booking</span>
+            </button>
+            <p class="mt-4 text-center text-xs text-navy-400">You'll get an instant confirmation email with your booking details and dock directions.</p>
+          </fieldset>
+        </div>
+
+        <!-- Order summary -->
+        <aside class="order-first lg:order-none">
+          <div id="order-summary" class="lg:sticky lg:top-28"></div>
+        </aside>
+      </form>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/pages/checkout.js"></script>
+</body>
+</html>

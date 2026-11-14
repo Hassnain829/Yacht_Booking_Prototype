@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicago Yacht Booking — Private Yacht Charters on Lake Michigan</title>
+  <meta name="description" content="Book private yacht charters in Chicago. Sunset skyline cruises, Playpen swim parties, Navy Pier fireworks and river architecture tours — licensed captain included.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="bg-shell font-sans text-navy-900 antialiased" data-page="home">
+  <div id="site-header"></div>
+
+  <main>
+    <!-- =========================================================
+         HERO — full-screen background video
+         ========================================================= -->
+    <section class="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-navy-950">
+      <video id="hero-video" class="hero-video absolute inset-0 -z-20 h-full w-full object-cover" autoplay muted loop playsinline preload="auto" poster="assets/images/hero-poster.jpg">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-navy-950/75 via-navy-950/35 to-navy-950/90"></div>
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(7,17,30,.55)_100%)]"></div>
+
+      <div class="container flex flex-1 flex-col items-center justify-center pb-10 pt-40 text-center md:pt-44">
+        <p class="reveal inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.3em] text-brass-200 backdrop-blur">
+          <i data-lucide="anchor" class="h-3.5 w-3.5"></i> Chicago's Premier Yacht Charters
+        </p>
+        <h1 class="reveal mt-7 max-w-5xl font-display text-[2.6rem] leading-[1.05] text-white sm:text-6xl lg:text-[5.25rem]" data-delay="1">
+          Your Private Yacht <br class="hidden sm:block"><em class="font-medium text-brass-300">on Lake Michigan</em>
+        </h1>
+        <p class="reveal mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg" data-delay="2">
+          Skyline sunsets, Playpen swim parties, Navy Pier fireworks and river architecture cruises. Every package includes a licensed captain — for groups of 2 to 80, seven days a week.
+        </p>
+        <div class="reveal mt-9 flex flex-col items-center gap-3 sm:flex-row" data-delay="3">
+          <a href="booking.html" class="inline-flex items-center gap-2 rounded-full bg-brass-400 px-8 py-4 text-sm font-bold text-navy-950 shadow-glow transition hover:-translate-y-0.5 hover:bg-brass-300">Book Your Yacht <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          <a href="pricing.html" class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white hover:text-navy-950">See Pricing</a>
+          <a href="tel:+13125550148" class="inline-flex items-center gap-2 px-4 py-4 text-sm font-bold text-white/85 hover:text-white"><i data-lucide="phone" class="h-4 w-4 text-brass-300"></i>(312) 555-0148</a>
+        </div>
+      </div>
+
+      <!-- Quick booking bar -->
+      <div class="container relative pb-8 md:pb-12">
+        <form data-quick-book class="reveal mx-auto grid max-w-5xl gap-2 rounded-3xl border border-white/15 bg-white/10 p-2 shadow-2xl backdrop-blur-xl md:grid-cols-[1.3fr_1fr_0.8fr_auto]" data-delay="4">
+          <label class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-left">
+            <i data-lucide="compass" class="h-5 w-5 shrink-0 text-brass-500"></i>
+            <span class="flex-1">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-navy-400">Experience</span>
+              <select name="experience" data-experience-options class="w-full cursor-pointer bg-transparent text-sm font-semibold text-navy-950 focus:outline-none">
+                <option value="">Any experience</option>
+              </select>
+            </span>
+          </label>
+          <label class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-left">
+            <i data-lucide="calendar-days" class="h-5 w-5 shrink-0 text-brass-500"></i>
+            <span class="flex-1">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-navy-400">Date</span>
+              <input type="date" name="date" class="w-full cursor-pointer bg-transparent text-sm font-semibold text-navy-950 focus:outline-none">
+            </span>
+          </label>
+          <label class="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-left">
+            <i data-lucide="users" class="h-5 w-5 shrink-0 text-brass-500"></i>
+            <span class="flex-1">
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-navy-400">Guests</span>
+              <select name="guests" class="w-full cursor-pointer bg-transparent text-sm font-semibold text-navy-950 focus:outline-none">
+                <option value="2">2 guests</option><option value="4">3–4 guests</option><option value="6">5–6 guests</option>
+                <option value="10" selected>7–10 guests</option><option value="13">11–13 guests</option><option value="30">14–30 guests</option>
+                <option value="49">31–49 guests</option><option value="80">50–80 guests</option>
+              </select>
+            </span>
+          </label>
+          <button class="inline-flex items-center justify-center gap-2 rounded-2xl bg-brass-400 px-7 py-4 text-sm font-bold text-navy-950 transition hover:bg-brass-300">
+            <i data-lucide="search" class="h-4 w-4"></i> Check Availability
+          </button>
+        </form>
+        <div class="mt-6 hidden items-center justify-between text-white/60 md:flex">
+          <button id="video-toggle" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] hover:text-white" aria-label="Pause background video">
+            <i data-lucide="pause" class="h-4 w-4"></i><span>Pause video</span>
+          </button>
+          <a href="#fleet" class="flex flex-col items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] hover:text-white">
+            <span class="relative h-9 w-5 rounded-full border border-white/40"><span class="absolute left-1/2 top-1.5 h-2 w-1 -translate-x-1/2 rounded-full bg-brass-300 animate-scroll-dot"></span></span>
+            Scroll
+          </a>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em]">Departing daily · 4 Chicago harbors</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SOCIAL PROOF
+         ========================================================= -->
+    <section class="border-b border-navy-100 bg-white">
+      <div class="container grid items-center gap-10 py-12 lg:grid-cols-[1fr_2fr]">
+        <div class="reveal flex items-center gap-5">
+          <div class="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-navy-950 font-display text-2xl text-brass-300">4.9</div>
+          <div>
+            <div class="flex gap-0.5">
+              <i data-lucide="star" class="h-5 w-5 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-5 w-5 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-5 w-5 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-5 w-5 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-5 w-5 fill-brass-400 text-brass-400"></i>
+            </div>
+            <p class="mt-1 text-sm font-semibold text-navy-700">Rated 4.9 from <span class="text-navy-950">1,200+</span> guest reviews</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div class="reveal" data-delay="1"><p class="font-display text-4xl text-navy-950"><span data-count="25" data-suffix="K+">0</span></p><p class="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-navy-400">Guests hosted</p></div>
+          <div class="reveal" data-delay="2"><p class="font-display text-4xl text-navy-950"><span data-count="4800" data-suffix="+">0</span></p><p class="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-navy-400">Charters</p></div>
+          <div class="reveal" data-delay="3"><p class="font-display text-4xl text-navy-950"><span data-count="20" data-suffix="+">0</span></p><p class="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-navy-400">Licensed captains</p></div>
+          <div class="reveal" data-delay="4"><p class="font-display text-4xl text-navy-950"><span data-count="4">0</span></p><p class="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-navy-400">Chicago harbors</p></div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden border-t border-navy-100 py-6">
+        <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent"></div>
+        <div class="flex w-max animate-marquee items-center gap-16 whitespace-nowrap font-display text-xl text-navy-300">
+          <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-navy-400">Trusted by Chicago teams</span>
+          <span>Lakeview Partners</span><span>◆</span><span>Northwind Group</span><span>◆</span><span>Loop Capital Co.</span><span>◆</span><span>Riverside Health</span><span>◆</span><span>Union Station Labs</span><span>◆</span><span>Wacker &amp; Co.</span><span>◆</span>
+          <span class="text-xs font-sans font-bold uppercase tracking-[0.3em] text-navy-400">Trusted by Chicago teams</span>
+          <span>Lakeview Partners</span><span>◆</span><span>Northwind Group</span><span>◆</span><span>Loop Capital Co.</span><span>◆</span><span>Riverside Health</span><span>◆</span><span>Union Station Labs</span><span>◆</span><span>Wacker &amp; Co.</span><span>◆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FEATURED FLEET
+         ========================================================= -->
+    <section id="fleet" class="py-24 md:py-32">
+      <div class="container">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div class="reveal max-w-2xl">
+            <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>Our Fleet</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight text-navy-950 md:text-5xl">Find the right yacht <em class="text-brass-600">for your crew</em></h2>
+            <p class="mt-4 text-navy-500">From intimate sailboats for two to an 80-guest party catamaran — every yacht is inspected, insured and run by a licensed USCG captain.</p>
+          </div>
+          <div class="reveal flex flex-wrap gap-2" id="fleet-tabs" role="tablist" aria-label="Filter fleet by group size">
+            <button data-size="all" class="rounded-full bg-navy-950 px-5 py-2.5 text-sm font-bold text-white">All</button>
+            <button data-size="small" class="rounded-full border border-navy-200 px-5 py-2.5 text-sm font-bold text-navy-700 hover:border-navy-950">Up to 13</button>
+            <button data-size="large" class="rounded-full border border-navy-200 px-5 py-2.5 text-sm font-bold text-navy-700 hover:border-navy-950">14 – 80 guests</button>
+          </div>
+        </div>
+        <div id="featured-yachts" class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+        <div class="reveal mt-14 text-center">
+          <a href="yachts.html" class="inline-flex items-center gap-2 rounded-full border border-navy-200 px-7 py-3.5 text-sm font-bold text-navy-900 transition hover:border-navy-950 hover:bg-navy-950 hover:text-white">View the full fleet <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         EXPERIENCES
+         ========================================================= -->
+    <section class="relative overflow-hidden bg-navy-950 py-24 text-white md:py-32">
+      <div class="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-brass-400/10 blur-3xl"></div>
+      <div class="container relative">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-300"><span class="h-px w-10 bg-brass-400"></span>Experiences &amp; Events<span class="h-px w-10 bg-brass-400"></span></p>
+          <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">Chicago's best moments are <em class="text-brass-300">on the water</em></h2>
+          <p class="mt-4 text-white/65">Pick a signature experience — we'll match you with the right yacht, the right route and the perfect departure time.</p>
+        </div>
+
+        <!-- Destinations -->
+        <div class="mt-16 grid gap-6 md:grid-cols-3">
+          <a href="booking.html?experience=playpen" class="reveal group relative block aspect-[3/4] overflow-hidden rounded-3xl">
+            <img src="assets/images/exp-swim.jpg" alt="Friends on the bow of a yacht in turquoise water" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-[1.4s] group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent"></div>
+            <span class="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider backdrop-blur">Swim &amp; Party</span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-display text-3xl">The Playpen</h3>
+              <p class="mt-2 text-sm text-white/70">Anchor, float and swim at Chicago's favorite on-the-water hangout.</p>
+              <span class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brass-300">Book this experience <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1"></i></span>
+            </div>
+          </a>
+          <a href="booking.html?experience=river" class="reveal group relative block aspect-[3/4] overflow-hidden rounded-3xl md:mt-12" data-delay="1">
+            <img src="assets/images/chicago-river-bridges.jpg" alt="Raised bridges over the Chicago River" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-[1.4s] group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent"></div>
+            <span class="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider backdrop-blur">Sightseeing</span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-display text-3xl">Chicago River</h3>
+              <p class="mt-2 text-sm text-white/70">Cruise the canyon of skyscrapers on a private architecture tour.</p>
+              <span class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brass-300">Book this experience <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1"></i></span>
+            </div>
+          </a>
+          <a href="booking.html?experience=fireworks" class="reveal group relative block aspect-[3/4] overflow-hidden rounded-3xl" data-delay="2">
+            <img src="assets/images/exp-fireworks.jpg" alt="Couple watching fireworks over the water" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-[1.4s] group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent"></div>
+            <span class="absolute left-5 top-5 rounded-full bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider backdrop-blur">Wed &amp; Sat nights</span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-display text-3xl">Navy Pier Fireworks</h3>
+              <p class="mt-2 text-sm text-white/70">Front-row, private seats to the summer fireworks show.</p>
+              <span class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brass-300">Book this experience <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Your Chicago moment -->
+        <div class="mt-24 grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div class="reveal lg:sticky lg:top-32 lg:self-start">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-brass-300">Your Chicago Moment</p>
+            <h3 class="mt-4 font-display text-4xl leading-tight">Whatever you're celebrating, there's a yacht for it.</h3>
+            <p class="mt-4 text-white/65">Tell us the occasion and we'll handle the details — décor, catering, playlists and the perfect route.</p>
+            <div class="relative mt-8 overflow-hidden rounded-3xl">
+              <img src="assets/images/exp-party.jpg" alt="Guests celebrating on a luxury yacht at sunset" loading="lazy" class="aspect-[4/3] w-full object-cover">
+            </div>
+          </div>
+          <div class="divide-y divide-white/10 border-y border-white/10">
+            <a href="booking.html?experience=celebration" class="reveal group flex items-center gap-5 py-6">
+              <img src="assets/images/exp-friends.jpg" alt="" loading="lazy" class="h-20 w-20 shrink-0 rounded-2xl object-cover md:h-24 md:w-28">
+              <div class="flex-1"><h4 class="font-display text-2xl transition group-hover:text-brass-300">Birthdays &amp; Bachelorettes</h4><p class="mt-1 text-sm text-white/60">Décor, champagne flutes and a celebration playlist, ready when you board.</p></div>
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20 transition group-hover:border-brass-400 group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="arrow-up-right" class="h-5 w-5"></i></span>
+            </a>
+            <a href="booking.html?experience=corporate" class="reveal group flex items-center gap-5 py-6">
+              <img src="assets/images/exp-toast.jpg" alt="" loading="lazy" class="h-20 w-20 shrink-0 rounded-2xl object-cover md:h-24 md:w-28">
+              <div class="flex-1"><h4 class="font-display text-2xl transition group-hover:text-brass-300">Corporate Outings</h4><p class="mt-1 text-sm text-white/60">Client entertaining and team events with catering coordination and invoicing.</p></div>
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20 transition group-hover:border-brass-400 group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="arrow-up-right" class="h-5 w-5"></i></span>
+            </a>
+            <a href="booking.html?experience=proposal" class="reveal group flex items-center gap-5 py-6">
+              <img src="assets/images/exp-couple.jpg" alt="" loading="lazy" class="h-20 w-20 shrink-0 rounded-2xl object-cover md:h-24 md:w-28">
+              <div class="flex-1"><h4 class="font-display text-2xl transition group-hover:text-brass-300">Proposals &amp; Romance</h4><p class="mt-1 text-sm text-white/60">Roses, champagne and a private sunset route planned down to the minute.</p></div>
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20 transition group-hover:border-brass-400 group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="arrow-up-right" class="h-5 w-5"></i></span>
+            </a>
+            <a href="booking.html?experience=sunset" class="reveal group flex items-center gap-5 py-6">
+              <img src="assets/images/hero-poster.jpg" alt="" loading="lazy" class="h-20 w-20 shrink-0 rounded-2xl object-cover md:h-24 md:w-28">
+              <div class="flex-1"><h4 class="font-display text-2xl transition group-hover:text-brass-300">Sunset Skyline Cruise</h4><p class="mt-1 text-sm text-white/60">Golden hour on the lake as the city lights flicker on.</p></div>
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20 transition group-hover:border-brass-400 group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="arrow-up-right" class="h-5 w-5"></i></span>
+            </a>
+            <a href="booking.html?experience=private" class="reveal group flex items-center gap-5 py-6">
+              <img src="assets/images/yacht-aerial.jpg" alt="" loading="lazy" class="h-20 w-20 shrink-0 rounded-2xl object-cover md:h-24 md:w-28">
+              <div class="flex-1"><h4 class="font-display text-2xl transition group-hover:text-brass-300">Private Day Charter</h4><p class="mt-1 text-sm text-white/60">Your yacht, your route — skyline, beaches or simply open water.</p></div>
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/20 transition group-hover:border-brass-400 group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="arrow-up-right" class="h-5 w-5"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         WHY CHOOSE US
+         ========================================================= -->
+    <section class="py-24 md:py-32">
+      <div class="container grid items-center gap-16 lg:grid-cols-2">
+        <div class="reveal relative">
+          <div class="grid grid-cols-5 grid-rows-6 gap-4">
+            <img src="assets/images/deck-lounge.jpg" alt="Yacht deck lounge with cushions" loading="lazy" class="col-span-3 row-span-6 h-full w-full rounded-3xl object-cover">
+            <img src="assets/images/chicago-navy-pier.jpg" alt="Chicago skyline and Navy Pier from the lake" loading="lazy" class="col-span-2 row-span-3 h-full w-full rounded-3xl object-cover">
+            <img src="assets/images/exp-cabin.jpg" alt="Guests relaxing inside a yacht cabin" loading="lazy" class="col-span-2 row-span-3 h-full w-full rounded-3xl object-cover">
+          </div>
+          <div class="absolute -bottom-8 left-8 flex items-center gap-4 rounded-2xl bg-white p-5 shadow-card md:left-12">
+            <span class="grid h-12 w-12 place-items-center rounded-full bg-brass-100 text-brass-700"><i data-lucide="shield-check" class="h-6 w-6"></i></span>
+            <div><p class="font-display text-xl text-navy-950">USCG Licensed</p><p class="text-xs font-semibold text-navy-400">Fully insured · Safety-certified</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="reveal">
+            <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>Why Chicago Yacht Booking</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight text-navy-950 md:text-5xl">Local captains. <em class="text-brass-600">Honest pricing.</em> Zero hassle.</h2>
+            <p class="mt-5 leading-relaxed text-navy-500">We're Chicago boaters who got tired of hidden fees and confusing booking. So we built a better way: real-time availability, all-in packages with your captain already included, and a team that answers the phone.</p>
+          </div>
+          <div class="mt-10 grid gap-5 sm:grid-cols-2">
+            <div class="reveal rounded-3xl border border-navy-100 bg-white p-6" data-delay="1"><i data-lucide="ship-wheel" class="h-8 w-8 text-brass-500"></i><h3 class="mt-4 text-lg font-bold text-navy-950">Captain included</h3><p class="mt-2 text-sm leading-relaxed text-navy-500">Every package comes with a licensed, background-checked captain. No extra hiring.</p></div>
+            <div class="reveal rounded-3xl border border-navy-100 bg-white p-6" data-delay="2"><i data-lucide="cloud-sun" class="h-8 w-8 text-brass-500"></i><h3 class="mt-4 text-lg font-bold text-navy-950">Weather guarantee</h3><p class="mt-2 text-sm leading-relaxed text-navy-500">If the captain calls it, you reschedule free or get a non-expiring credit.</p></div>
+            <div class="reveal rounded-3xl border border-navy-100 bg-white p-6" data-delay="3"><i data-lucide="badge-dollar-sign" class="h-8 w-8 text-brass-500"></i><h3 class="mt-4 text-lg font-bold text-navy-950">Transparent pricing</h3><p class="mt-2 text-sm leading-relaxed text-navy-500">See your full total before checkout — charter, captain, fees and tax.</p></div>
+            <div class="reveal rounded-3xl border border-navy-100 bg-white p-6" data-delay="4"><i data-lucide="zap" class="h-8 w-8 text-brass-500"></i><h3 class="mt-4 text-lg font-bold text-navy-950">Instant booking</h3><p class="mt-2 text-sm leading-relaxed text-navy-500">Live calendar, real time slots, and instant confirmation in under 3 minutes.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3 STEPS
+         ========================================================= -->
+    <section class="bg-white py-24 md:py-32">
+      <div class="container">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>How it works<span class="h-px w-10 bg-brass-400"></span></p>
+          <h2 class="mt-4 font-display text-4xl leading-tight text-navy-950 md:text-5xl">Book your Chicago yacht in <em class="text-brass-600">3 easy steps</em></h2>
+        </div>
+        <div class="relative mt-16 grid gap-8 md:grid-cols-3">
+          <div class="pointer-events-none absolute left-[16%] right-[16%] top-10 hidden border-t-2 border-dashed border-navy-100 md:block"></div>
+          <div class="reveal relative text-center">
+            <span class="relative mx-auto grid h-20 w-20 place-items-center rounded-full bg-navy-950 font-display text-2xl text-brass-300 ring-8 ring-white">01</span>
+            <h3 class="mt-6 text-xl font-bold text-navy-950">Choose your experience</h3>
+            <p class="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-navy-500">Sunset, Playpen, fireworks, river tour or a private charter — then pick the yacht that fits your group.</p>
+          </div>
+          <div class="reveal relative text-center" data-delay="1">
+            <span class="relative mx-auto grid h-20 w-20 place-items-center rounded-full bg-navy-950 font-display text-2xl text-brass-300 ring-8 ring-white">02</span>
+            <h3 class="mt-6 text-xl font-bold text-navy-950">Pick date, time &amp; duration</h3>
+            <p class="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-navy-500">See live availability on the calendar and choose a departure time that works for you.</p>
+          </div>
+          <div class="reveal relative text-center" data-delay="2">
+            <span class="relative mx-auto grid h-20 w-20 place-items-center rounded-full bg-brass-400 font-display text-2xl text-navy-950 ring-8 ring-white">03</span>
+            <h3 class="mt-6 text-xl font-bold text-navy-950">Check out &amp; set sail</h3>
+            <p class="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-navy-500">Secure your date with a 50% deposit. Your captain meets you at the dock — just bring the crew.</p>
+          </div>
+        </div>
+        <div class="reveal mt-14 text-center">
+          <a href="booking.html" class="inline-flex items-center gap-2 rounded-full bg-navy-950 px-8 py-4 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-navy-800">Start Booking <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TESTIMONIALS
+         ========================================================= -->
+    <section class="py-24 md:py-32" data-carousel>
+      <div class="container">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div class="reveal max-w-2xl">
+            <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>Guest Reviews</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight text-navy-950 md:text-5xl">Loved by <em class="text-brass-600">1,200+</em> happy crews</h2>
+          </div>
+          <div class="reveal flex items-center gap-4">
+            <span data-counter class="font-display text-lg text-navy-400">01 / 06</span>
+            <button data-prev class="grid h-12 w-12 place-items-center rounded-full border border-navy-200 text-navy-900 transition hover:bg-navy-950 hover:text-white" aria-label="Previous review"><i data-lucide="arrow-left" class="h-5 w-5"></i></button>
+            <button data-next class="grid h-12 w-12 place-items-center rounded-full bg-navy-950 text-white transition hover:bg-brass-400 hover:text-navy-950" aria-label="Next review"><i data-lucide="arrow-right" class="h-5 w-5"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-12">
+        <div data-track class="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+          <!-- Placeholder reviews for the mockup — replace with real ones (or a Google Reviews feed) in Laravel -->
+          <figure class="flex w-[88%] shrink-0 snap-start flex-col rounded-3xl bg-white p-8 shadow-card sm:w-[60%] lg:w-[calc((100%-3rem)/3)]">
+            <i data-lucide="quote" class="h-8 w-8 text-brass-300"></i>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-navy-700">"Booked The Azure for my wife's 40th and it was flawless. Captain Mike knew exactly where to anchor at the Playpen and the décor was set up when we arrived."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4 border-t border-navy-100 pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-navy-950 text-sm font-bold text-brass-300">DR</span><div><p class="font-bold text-navy-950">Daniel R.</p><p class="text-xs text-navy-400">Birthday · Playpen Swim Party</p></div><div class="ml-auto flex gap-0.5"><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i></div></figcaption>
+          </figure>
+          <figure class="flex w-[88%] shrink-0 snap-start flex-col rounded-3xl bg-navy-950 p-8 text-white shadow-card sm:w-[60%] lg:w-[calc((100%-3rem)/3)]">
+            <i data-lucide="quote" class="h-8 w-8 text-brass-300"></i>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-white/80">"We hosted 45 clients on Skyline Majesty. The booking was easy, the invoice was clean, and the crew made us look like rock stars. Already booked next summer."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4 border-t border-white/10 pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-brass-400 text-sm font-bold text-navy-950">AP</span><div><p class="font-bold">Aisha P.</p><p class="text-xs text-white/50">Corporate Outing</p></div><div class="ml-auto flex gap-0.5"><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i></div></figcaption>
+          </figure>
+          <figure class="flex w-[88%] shrink-0 snap-start flex-col rounded-3xl bg-white p-8 shadow-card sm:w-[60%] lg:w-[calc((100%-3rem)/3)]">
+            <i data-lucide="quote" class="h-8 w-8 text-brass-300"></i>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-navy-700">"I proposed on Windward at sunset. The team helped me plan everything — rose petals, champagne, even a hidden photographer. She said yes!"</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4 border-t border-navy-100 pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-navy-950 text-sm font-bold text-brass-300">JT</span><div><p class="font-bold text-navy-950">Jordan T.</p><p class="text-xs text-navy-400">Proposal · Sunset Sail</p></div><div class="ml-auto flex gap-0.5"><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i></div></figcaption>
+          </figure>
+          <figure class="flex w-[88%] shrink-0 snap-start flex-col rounded-3xl bg-white p-8 shadow-card sm:w-[60%] lg:w-[calc((100%-3rem)/3)]">
+            <i data-lucide="quote" class="h-8 w-8 text-brass-300"></i>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-navy-700">"The fireworks cruise was the highlight of our Chicago trip. Front-row view, no crowds, and the skyline on the way back was unreal."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4 border-t border-navy-100 pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-navy-950 text-sm font-bold text-brass-300">ML</span><div><p class="font-bold text-navy-950">Maria L.</p><p class="text-xs text-navy-400">Navy Pier Fireworks</p></div><div class="ml-auto flex gap-0.5"><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i></div></figcaption>
+          </figure>
+          <figure class="flex w-[88%] shrink-0 snap-start flex-col rounded-3xl bg-white p-8 shadow-card sm:w-[60%] lg:w-[calc((100%-3rem)/3)]">
+            <i data-lucide="quote" class="h-8 w-8 text-brass-300"></i>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-navy-700">"Bachelorette party for 12 on Golden Hour. Our captain was so fun and the whole thing felt VIP. Best decision of the weekend."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4 border-t border-navy-100 pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-navy-950 text-sm font-bold text-brass-300">SK</span><div><p class="font-bold text-navy-950">Sophie K.</p><p class="text-xs text-navy-400">Bachelorette</p></div><div class="ml-auto flex gap-0.5"><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i></div></figcaption>
+          </figure>
+          <figure class="flex w-[88%] shrink-0 snap-start flex-col rounded-3xl bg-white p-8 shadow-card sm:w-[60%] lg:w-[calc((100%-3rem)/3)]">
+            <i data-lucide="quote" class="h-8 w-8 text-brass-300"></i>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-navy-700">"Transparent pricing was a breath of fresh air — what we saw at checkout is exactly what we paid. The river architecture tour was fascinating."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4 border-t border-navy-100 pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-navy-950 text-sm font-bold text-brass-300">CW</span><div><p class="font-bold text-navy-950">Chris W.</p><p class="text-xs text-navy-400">River Architecture Cruise</p></div><div class="ml-auto flex gap-0.5"><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i><i data-lucide="star" class="h-4 w-4 fill-brass-400 text-brass-400"></i></div></figcaption>
+          </figure>
+        </div>
+        <div class="mt-6 h-1 w-full overflow-hidden rounded-full bg-navy-100"><div data-progress class="h-full rounded-full bg-brass-400 transition-all duration-300" style="width:12%"></div></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         GALLERY
+         ========================================================= -->
+    <section class="bg-white py-24 md:py-32">
+      <div class="container">
+        <div class="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>Life on the lake</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight text-navy-950 md:text-5xl">Moments from the water</h2>
+          </div>
+          <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-brass-600"><i data-lucide="instagram" class="h-5 w-5"></i>@chicagoyachtbooking</a>
+        </div>
+        <div id="home-gallery" class="mt-12 grid auto-rows-[160px] grid-cols-2 gap-4 md:auto-rows-[200px] md:grid-cols-4">
+          <button data-gallery-index="0" class="reveal group relative col-span-2 row-span-2 overflow-hidden rounded-3xl"><img src="assets/images/chicago-river-night.jpg" alt="Chicago River at night" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="1" class="reveal group relative overflow-hidden rounded-3xl" data-delay="1"><img src="assets/images/exp-toast.jpg" alt="Guests toasting on a yacht" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="2" class="reveal group relative row-span-2 overflow-hidden rounded-3xl" data-delay="2"><img src="assets/images/bow.jpg" alt="Woman standing on a yacht bow" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="3" class="reveal group relative overflow-hidden rounded-3xl" data-delay="1"><img src="assets/images/yacht-aerial.jpg" alt="Aerial view of a white yacht" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="4" class="reveal group relative overflow-hidden rounded-3xl"><img src="assets/images/chicago-river-cruise.jpg" alt="Boat cruising the Chicago River" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="5" class="reveal group relative overflow-hidden rounded-3xl" data-delay="1"><img src="assets/images/fireworks.jpg" alt="Fireworks over the water" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="6" class="reveal group relative overflow-hidden rounded-3xl" data-delay="2"><img src="assets/images/interior-salon.jpg" alt="Yacht salon interior" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+          <button data-gallery-index="7" class="reveal group relative overflow-hidden rounded-3xl" data-delay="3"><img src="assets/images/exp-couple.jpg" alt="Couple toasting on a yacht" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FAQ
+         ========================================================= -->
+    <section class="py-24 md:py-32">
+      <div class="container grid gap-14 lg:grid-cols-[1fr_1.5fr]">
+        <div class="reveal">
+          <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>FAQ</p>
+          <h2 class="mt-4 font-display text-4xl leading-tight text-navy-950 md:text-5xl">Questions before you set sail?</h2>
+          <p class="mt-4 text-navy-500">Can't find what you're looking for? Our crew is on the phone every day.</p>
+          <div class="mt-8 rounded-3xl bg-navy-950 p-7 text-white">
+            <p class="font-display text-2xl">Talk to a charter expert</p>
+            <p class="mt-2 text-sm text-white/60">Daily 8:00 AM – 9:00 PM</p>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <a href="tel:+13125550148" class="inline-flex items-center justify-center gap-2 rounded-full bg-brass-400 px-6 py-3 text-sm font-bold text-navy-950 hover:bg-brass-300"><i data-lucide="phone" class="h-4 w-4"></i>Call us</a>
+              <a href="contact.html" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-bold hover:bg-white hover:text-navy-950"><i data-lucide="message-circle" class="h-4 w-4"></i>Send a message</a>
+            </div>
+          </div>
+        </div>
+        <div class="reveal divide-y divide-navy-100 border-y border-navy-100" data-accordion>
+          <div class="acc-item is-open">
+            <button class="acc-trigger flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold text-navy-950" aria-expanded="true">Is the captain included in the price?<i data-lucide="plus" class="acc-icon h-5 w-5 shrink-0 text-brass-500"></i></button>
+            <div class="acc-panel"><div><p class="pb-6 leading-relaxed text-navy-500">Yes. Every package includes a licensed USCG captain (and crew on larger yachts). The captain fee is shown as its own line in your quote so you always know exactly what you're paying for.</p></div></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold text-navy-950" aria-expanded="false">Can we bring our own food and drinks?<i data-lucide="plus" class="acc-icon h-5 w-5 shrink-0 text-brass-500"></i></button>
+            <div class="acc-panel"><div><p class="pb-6 leading-relaxed text-navy-500">Absolutely — most charters are BYOB (21+) and you're welcome to bring food. No glass bottles please. You can also add chef-curated catering or a champagne toast during booking.</p></div></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold text-navy-950" aria-expanded="false">What happens if the weather is bad?<i data-lucide="plus" class="acc-icon h-5 w-5 shrink-0 text-brass-500"></i></button>
+            <div class="acc-panel"><div><p class="pb-6 leading-relaxed text-navy-500">Safety comes first. If your captain cancels due to weather, you can reschedule for free or receive a non-expiring credit for the full amount paid.</p></div></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold text-navy-950" aria-expanded="false">How much do I pay upfront?<i data-lucide="plus" class="acc-icon h-5 w-5 shrink-0 text-brass-500"></i></button>
+            <div class="acc-panel"><div><p class="pb-6 leading-relaxed text-navy-500">A 50% deposit secures your date. The remaining balance is charged automatically 7 days before your charter. You can also choose to pay in full at checkout.</p></div></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold text-navy-950" aria-expanded="false">Where do we board?<i data-lucide="plus" class="acc-icon h-5 w-5 shrink-0 text-brass-500"></i></button>
+            <div class="acc-panel"><div><p class="pb-6 leading-relaxed text-navy-500">Each yacht departs from one of four harbors: DuSable Harbor, Navy Pier, Belmont Harbor or Burnham Harbor. Your confirmation includes the exact dock, parking tips and your captain's phone number.</p></div></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold text-navy-950" aria-expanded="false">How far in advance should I book?<i data-lucide="plus" class="acc-icon h-5 w-5 shrink-0 text-brass-500"></i></button>
+            <div class="acc-panel"><div><p class="pb-6 leading-relaxed text-navy-500">Summer weekends and fireworks nights often sell out 4–6 weeks ahead. Weekdays are usually available with a few days' notice.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CTA
+         ========================================================= -->
+    <section class="px-4 pb-24 md:pb-32">
+      <div class="reveal relative isolate mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-navy-950 px-6 py-20 text-center text-white md:py-28">
+        <img src="assets/images/chicago-river-night.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-40">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950 via-navy-950/60 to-navy-950/30"></div>
+        <p class="text-xs font-bold uppercase tracking-[0.3em] text-brass-300">Summer dates are filling fast</p>
+        <h2 class="mx-auto mt-4 max-w-3xl font-display text-4xl leading-tight md:text-6xl">Ready to see Chicago <em class="text-brass-300">from the water?</em></h2>
+        <p class="mx-auto mt-5 max-w-xl text-white/70">Pick your yacht, choose your experience and lock in your date in under three minutes.</p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="booking.html" class="inline-flex items-center gap-2 rounded-full bg-brass-400 px-8 py-4 text-sm font-bold text-navy-950 shadow-glow transition hover:-translate-y-0.5 hover:bg-brass-300">Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          <a href="yachts.html" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-4 text-sm font-bold text-white transition hover:bg-white hover:text-navy-950">Browse Yachts</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/pages/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Chicago Yacht Booking</title>
+  <meta name="description" content="Questions about a yacht charter in Chicago? Call, email or send us a message — we reply within the hour during business hours.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="bg-shell font-sans text-navy-900 antialiased" data-page="contact">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="relative isolate overflow-hidden bg-navy-950 pb-36 pt-44 md:pt-52">
+      <img src="assets/images/chicago-architecture.jpg" alt="" class="absolute inset-0 -z-20 h-full w-full object-cover opacity-45">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-navy-950/80 via-navy-950/50 to-navy-950"></div>
+      <div class="container text-center text-white">
+        <nav class="reveal flex justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-white/50" aria-label="Breadcrumb"><a href="index.html" class="hover:text-white">Home</a><span>/</span><span class="text-brass-300">Contact Us</span></nav>
+        <h1 class="reveal mt-5 font-display text-5xl md:text-7xl" data-delay="1">Let's plan your <em class="text-brass-300">day on the water</em></h1>
+        <p class="reveal mx-auto mt-5 max-w-2xl text-lg text-white/70" data-delay="2">Questions, custom events or group quotes — our crew replies within the hour, every day from 8 AM to 9 PM.</p>
+      </div>
+    </section>
+
+    <section class="relative z-10 -mt-24 pb-24">
+      <div class="container">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="tel:+13125550148" class="reveal group rounded-3xl bg-white p-6 shadow-card ring-1 ring-navy-100 transition hover:-translate-y-1"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-brass-300 transition group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="phone" class="h-5 w-5"></i></span><p class="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-navy-400">Call us</p><p class="mt-1 text-lg font-bold text-navy-950">(312) 555-0148</p></a>
+          <a href="mailto:hello@chicagoyachtbooking.com" class="reveal group rounded-3xl bg-white p-6 shadow-card ring-1 ring-navy-100 transition hover:-translate-y-1" data-delay="1"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-brass-300 transition group-hover:bg-brass-400 group-hover:text-navy-950"><i data-lucide="mail" class="h-5 w-5"></i></span><p class="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-navy-400">Email</p><p class="mt-1 break-all text-[15px] font-bold text-navy-950">hello@chicagoyachtbooking.com</p></a>
+          <div class="reveal rounded-3xl bg-white p-6 shadow-card ring-1 ring-navy-100" data-delay="2"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-brass-300"><i data-lucide="clock" class="h-5 w-5"></i></span><p class="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-navy-400">Hours</p><p class="mt-1 text-lg font-bold text-navy-950">Daily 8 AM – 9 PM</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 shadow-card ring-1 ring-navy-100" data-delay="3"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-brass-300"><i data-lucide="map-pin" class="h-5 w-5"></i></span><p class="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-navy-400">Main office</p><p class="mt-1 text-lg font-bold text-navy-950">DuSable Harbor, Chicago</p></div>
+        </div>
+
+        <div class="mt-12 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
+          <div class="reveal rounded-[2rem] bg-white p-7 shadow-card ring-1 ring-navy-100 md:p-10">
+            <div id="contact-success" class="hidden py-16 text-center">
+              <span class="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-50 text-emerald-600"><i data-lucide="circle-check" class="h-10 w-10"></i></span>
+              <h2 class="mt-6 font-display text-4xl text-navy-950">Message received!</h2>
+              <p class="mx-auto mt-3 max-w-md text-navy-500">Thanks <span id="cs-name"></span> — a charter expert will reply within the hour. Want to lock in a date right now?</p>
+              <div class="mt-8 flex justify-center gap-3"><a href="booking.html" class="inline-flex items-center gap-2 rounded-full bg-brass-400 px-7 py-3.5 text-sm font-bold text-navy-950 hover:bg-brass-300">Book online</a><button id="cs-again" class="rounded-full border border-navy-200 px-7 py-3.5 text-sm font-bold hover:border-navy-950">Send another</button></div>
+            </div>
+            <form id="contact-form" novalidate>
+              <h2 class="font-display text-3xl text-navy-950">Send us a message</h2>
+              <p class="mt-2 text-sm text-navy-500">Fields marked * are required.</p>
+              <div class="mt-8 grid gap-5 sm:grid-cols-2">
+                <label class="block"><span class="text-sm font-bold text-navy-800">Full name *</span><input name="name" required autocomplete="name" class="mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100" placeholder="Jane Smith"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Please enter your name</span></label>
+                <label class="block"><span class="text-sm font-bold text-navy-800">Email *</span><input name="email" type="email" required autocomplete="email" class="mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100" placeholder="jane@email.com"><span class="err mt-1 hidden text-xs font-semibold text-red-600">Please enter a valid email</span></label>
+                <label class="block"><span class="text-sm font-bold text-navy-800">Phone</span><input name="phone" type="tel" autocomplete="tel" class="mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100" placeholder="(312) 000-0000"></label>
+                <label class="block"><span class="text-sm font-bold text-navy-800">Preferred date</span><input name="date" type="date" class="mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"></label>
+                <label class="block"><span class="text-sm font-bold text-navy-800">Group size</span>
+                  <select name="guests" class="mt-2 w-full rounded-xl border border-navy-200 bg-white px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><option>2–6 guests</option><option>7–13 guests</option><option>14–49 guests</option><option>50–80 guests</option><option>80+ (multi-yacht)</option></select></label>
+                <label class="block"><span class="text-sm font-bold text-navy-800">Interested in</span>
+                  <select name="experience" data-experience-options class="mt-2 w-full rounded-xl border border-navy-200 bg-white px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100"><option value="">Not sure yet</option></select></label>
+                <label class="block sm:col-span-2"><span class="text-sm font-bold text-navy-800">Message *</span><textarea name="message" required rows="5" class="mt-2 w-full rounded-xl border border-navy-200 px-4 py-3.5 text-sm focus:border-navy-950 focus:outline-none focus:ring-4 focus:ring-navy-100" placeholder="Tell us about your occasion, ideal timing and anything special…"></textarea><span class="err mt-1 hidden text-xs font-semibold text-red-600">Please add a short message</span></label>
+              </div>
+              <button class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-950 px-8 py-4 text-sm font-bold text-white transition hover:bg-navy-800 sm:w-auto"><span class="btn-label">Send message</span><i data-lucide="send" class="h-4 w-4"></i></button>
+            </form>
+          </div>
+
+          <div class="space-y-6">
+            <div class="reveal overflow-hidden rounded-[2rem] ring-1 ring-navy-100" data-delay="1">
+              <iframe title="Map of DuSable Harbor, Chicago" src="https://www.google.com/maps?q=DuSable+Harbor+Chicago+IL&output=embed" class="h-80 w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="reveal rounded-[2rem] bg-navy-950 p-8 text-white" data-delay="2">
+              <p class="font-display text-2xl">Quick answers</p>
+              <div class="mt-4 divide-y divide-white/10" data-accordion>
+                <div class="acc-item"><button class="acc-trigger flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-bold" aria-expanded="false">Is the captain included?<i data-lucide="plus" class="acc-icon h-4 w-4 shrink-0 text-brass-300"></i></button><div class="acc-panel"><div><p class="pb-4 text-sm text-white/60">Yes — every package includes a licensed captain, shown as its own line in your quote.</p></div></div></div>
+                <div class="acc-item"><button class="acc-trigger flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-bold" aria-expanded="false">Can I change my date?<i data-lucide="plus" class="acc-icon h-4 w-4 shrink-0 text-brass-300"></i></button><div class="acc-panel"><div><p class="pb-4 text-sm text-white/60">Date changes are free up to 14 days before your charter, subject to availability.</p></div></div></div>
+                <div class="acc-item"><button class="acc-trigger flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-bold" aria-expanded="false">Do you offer gift cards?<i data-lucide="plus" class="acc-icon h-4 w-4 shrink-0 text-brass-300"></i></button><div class="acc-panel"><div><p class="pb-4 text-sm text-white/60">Yes! Digital gift cards in any amount, delivered instantly by email.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const ok = document.getElementById('contact-success');
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const check = (el) => {
+        const bad = el.required && (!el.value.trim() || (el.type === 'email' && !emailRe.test(el.value)));
+        el.classList.toggle('border-red-400', bad);
+        el.parentElement.querySelector('.err')?.classList.toggle('hidden', !bad);
+        return !bad;
+      };
+      form.addEventListener('blur', (e) => { if (e.target.required) check(e.target); }, true);
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fields = [form.elements.name, form.elements.email, form.elements.message];
+        if (!fields.map(check).every(Boolean)) { CYB.toast('Please fix the highlighted fields', 'error'); return; }
+        const btn = form.querySelector('button');
+        btn.disabled = true;
+        btn.querySelector('.btn-label').textContent = 'Sending…';
+        // Laravel: POST to route('contact.store') with @csrf, send mail + save lead
+        setTimeout(() => {
+          document.getElementById('cs-name').textContent = form.elements.name.value.split(' ')[0];
+          form.classList.add('hidden');
+          ok.classList.remove('hidden');
+          btn.disabled = false;
+          btn.querySelector('.btn-label').textContent = 'Send message';
+          form.reset();
+        }, 900);
+      });
+      document.getElementById('cs-again').addEventListener('click', () => { ok.classList.add('hidden'); form.classList.remove('hidden'); });
+    })();
+  </script>
+</body>
+</html>
