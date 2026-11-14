@@ -116,11 +116,7 @@ settings       tax_rate, deposit_rate, balance_due_days, weekend_multiplier, …
 ### 4. Admin dashboard (suggested: Filament)
 Resources: Yachts (with image uploads), Experiences, Add-ons, Harbors, Bookings (calendar view + status), Blackout dates, Promo codes, Settings, Contact leads. Filament gives tables, forms and a calendar widget quickly.
 
-### 5. Before going live
-- Replace the placeholder photos, video, reviews, stats, captain profiles, phone and email with real ones.
-- **Do not use Pinterest images.** They belong to their original owners. Use the client's own photos or licensed stock.
-- Compress `hero.mp4` (currently ~20 MB) to under 5 MB with HandBrake or ffmpeg, and add a WebM version.
-- The cancellation, weather and waiver text are placeholders. Get final wording from the business.
+
 
 ## Credits
 - Photos: [Unsplash](https://unsplash.com/license) (free to use).
