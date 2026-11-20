@@ -50,6 +50,28 @@
   CYB.params = () => Object.fromEntries(new URLSearchParams(location.search));
   CYB.esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+  /* Owner boat listings ("List your boat"). Mockup: localStorage. Laravel: listings table + ListingController. */
+  CYB.listings = {
+    all() { return CYB.store.get('listings', []); },
+    get(id) { return this.all().find((l) => l.id === id); },
+    /** returns false when the browser storage is full (large photos) */
+    save(listing) {
+      listing.updatedAt = new Date().toISOString();
+      const list = [listing, ...this.all().filter((l) => l.id !== listing.id)];
+      try { localStorage.setItem('cyb_listings', JSON.stringify(list)); return true; } catch (e) { return false; }
+    },
+    remove(id) { CYB.store.set('listings', this.all().filter((l) => l.id !== id)); },
+    title(l) {
+      const s = l.specs || {};
+      return l.title || [s.year, s.make !== 'Other' ? s.make : '', s.model].filter(Boolean).join(' ') || 'Untitled boat';
+    },
+    status: {
+      draft: { label: 'In progress', cls: 'bg-navy-100 text-navy-700' },
+      pending: { label: 'Pending review', cls: 'bg-amber-100 text-amber-800' },
+      approved: { label: 'Approved', cls: 'bg-emerald-100 text-emerald-800' },
+    },
+  };
+
   CYB.find = {
     yacht: (id) => D().yachts.find((y) => y.id === id),
     experience: (id) => D().experiences.find((e) => e.id === id),

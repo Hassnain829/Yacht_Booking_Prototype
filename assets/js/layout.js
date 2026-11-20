@@ -18,10 +18,12 @@
     { id: 'pricing', label: 'Pricing', href: 'pricing.html' },
     { id: 'about', label: 'About Us', href: 'about.html' },
     { id: 'contact', label: 'Contact Us', href: 'contact.html' },
+    { id: 'list-boat', label: 'List Your Boat', href: 'list-your-boat.html' },
   ];
+  const activeId = page === 'owner' ? 'list-boat' : page;
 
   const logo = (size = 'md') => `
-    <a href="index.html" class="group flex items-center gap-3" aria-label="${B.name} home">
+    <a href="index.html" class="group flex shrink-0 items-center gap-3 whitespace-nowrap" aria-label="${B.name} home">
       <span class="grid ${size === 'lg' ? 'h-12 w-12' : 'h-11 w-11'} place-items-center rounded-full border border-brass-300/50 bg-white/5 text-brass-300 transition group-hover:bg-brass-400 group-hover:text-navy-950">
         <i data-lucide="anchor" class="h-5 w-5"></i>
       </span>
@@ -46,22 +48,22 @@
     </div>`}
     <div class="container flex h-20 items-center justify-between gap-6">
       ${logo()}
-      <nav class="hidden items-center gap-8 lg:flex" aria-label="Main">
-        ${nav.map((n) => `<a href="${n.href}" class="nav-link text-[13px] font-semibold uppercase tracking-[0.14em] ${page === n.id ? 'is-active text-white' : 'text-white/75 hover:text-white'}">${n.label}</a>`).join('')}
+      <nav class="hidden items-center gap-7 xl:flex" aria-label="Main">
+        ${nav.map((n) => `<a href="${n.href}" class="nav-link whitespace-nowrap text-[13px] font-semibold uppercase tracking-[0.12em] ${activeId === n.id ? 'is-active text-white' : 'text-white/75 hover:text-white'}">${n.label}</a>`).join('')}
       </nav>
       <div class="flex items-center gap-3">
-        <a href="tel:${B.phoneHref}" class="hidden items-center gap-2 text-sm font-semibold text-white/80 transition hover:text-white xl:flex">
-          <span class="grid h-9 w-9 place-items-center rounded-full bg-white/10"><i data-lucide="phone" class="h-4 w-4"></i></span>${B.phone}
+        <a href="tel:${B.phoneHref}" class="hidden h-10 w-10 place-items-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20 hover:text-white min-[1360px]:grid" aria-label="Call ${B.phone}" title="${B.phone}">
+          <i data-lucide="phone" class="h-4 w-4"></i>
         </a>
-        <a href="booking.html" class="${CYB.cls.btnPrimary} hidden sm:inline-flex">Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-        <button id="menu-open" class="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20 lg:hidden" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <a href="booking.html" class="${CYB.cls.btnPrimary} hidden whitespace-nowrap sm:inline-flex">Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        <button id="menu-open" class="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20 xl:hidden" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
           <i data-lucide="menu" class="h-5 w-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <div id="mobile-menu" class="fixed inset-0 z-[60] lg:hidden" aria-hidden="true">
+  <div id="mobile-menu" class="fixed inset-0 z-[60] xl:hidden" aria-hidden="true">
     <div data-close class="absolute inset-0 bg-navy-950/60 backdrop-blur-sm"></div>
     <aside class="drawer absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-navy-950 p-6 text-white shadow-2xl">
       <div class="flex items-center justify-between">
@@ -69,7 +71,7 @@
         <button data-close class="grid h-11 w-11 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label="Close menu"><i data-lucide="x" class="h-5 w-5"></i></button>
       </div>
       <nav class="mt-10 flex flex-col" aria-label="Mobile">
-        ${nav.map((n) => `<a href="${n.href}" class="flex items-center justify-between border-b border-white/10 py-4 font-display text-2xl ${page === n.id ? 'text-brass-300' : 'text-white'}">${n.label}<i data-lucide="arrow-up-right" class="h-5 w-5 text-white/40"></i></a>`).join('')}
+        ${nav.map((n) => `<a href="${n.href}" class="flex items-center justify-between border-b border-white/10 py-3.5 font-display text-2xl ${activeId === n.id ? 'text-brass-300' : 'text-white'}">${n.label}<i data-lucide="arrow-up-right" class="h-5 w-5 text-white/40"></i></a>`).join('')}
       </nav>
       <div class="mt-auto space-y-3 pt-8">
         <a href="booking.html" class="${CYB.cls.btnPrimary} w-full py-4">Book Now <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
@@ -111,6 +113,7 @@
             <ul class="mt-5 space-y-3 text-sm text-white/65">
               ${nav.map((n) => `<li><a href="${n.href}" class="hover:text-white">${n.label}</a></li>`).join('')}
               <li><a href="booking.html" class="hover:text-white">Book Now</a></li>
+              <li><a href="owner-dashboard.html" class="hover:text-white">Owner Dashboard</a></li>
             </ul>
           </div>
           <div>

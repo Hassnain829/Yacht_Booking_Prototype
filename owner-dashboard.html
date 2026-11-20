@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Dashboard — Chicago Yacht Booking</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="bg-shell font-sans text-navy-900 antialiased" data-page="owner" data-header="solid">
+  <div id="site-header"></div>
+
+  <!-- Laravel: resources/views/owner/dashboard.blade.php (auth: owner) -->
+  <main class="min-h-screen pb-24 pt-28">
+    <div class="container max-w-5xl">
+      <nav class="mt-6 flex gap-1 rounded-full bg-white p-1 text-sm font-bold shadow-sm ring-1 ring-navy-100 sm:inline-flex" aria-label="Owner">
+        <a href="owner-dashboard.html" class="flex-1 rounded-full bg-navy-950 px-5 py-2.5 text-center text-white" aria-current="page">Dashboard</a>
+        <a href="my-boats.html" class="flex-1 rounded-full px-5 py-2.5 text-center text-navy-500 hover:text-navy-950">My boats</a>
+      </nav>
+
+      <div class="mt-10">
+        <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-brass-600"><span class="h-px w-10 bg-brass-400"></span>Owner</p>
+        <h1 class="mt-3 font-display text-4xl text-navy-950 md:text-5xl">Owner dashboard</h1>
+      </div>
+
+      <div id="dash" class="mt-10"></div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/pages/owner-dashboard.js"></script>
+</body>
+</html>

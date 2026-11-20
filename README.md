@@ -30,6 +30,9 @@ An internet connection is needed for Tailwind CDN, Google Fonts, Lucide icons an
 | Book Now | `booking.html` | **4-step booking**: Experience → Yacht & guests → Calendar, duration & time slot → Extras, with live summary |
 | Checkout | `checkout.html` | Full-page checkout (not a popup): guest details, gratuity, deposit vs. full payment, card fields, promo code, order summary, hold timer |
 | Confirmation | `confirmation.html` | Booking reference, trip details, payment summary, next steps, **.ics add-to-calendar**, print, map |
+| List Your Boat | `list-your-boat.html` | **Owner onboarding wizard** (flow based on the client's reference): Boat details → Availability → Operators & durations + insurance → Review & submit. Auto-saves drafts, "Save and exit", photo upload |
+| My boats | `my-boats.html` | Owner's listings with status (In progress / Pending review / Approved), continue/edit, delete |
+| Owner dashboard | `owner-dashboard.html` | Owner profile, stats, action-required notice, tool cards (bookings, messages, payouts, tax forms…) |
 
 ### Demo tips for the client meeting
 - Promo codes: `WELCOME10` (10% off charter), `SUNSET50` ($50 off).
@@ -38,11 +41,12 @@ An internet connection is needed for Tailwind CDN, Google Fonts, Lucide icons an
 - Fri–Sun dates use the weekend rate (+15%).
 - Trips less than 7 days away must be paid in full (the deposit option is disabled).
 - Availability (sold-out days, booked slots) is fake but consistent: the same yacht and date always show the same result.
+- **List Your Boat**: on the photos step, "Demo: use sample photos" fills 4 photos instantly. Boats over 32 ft can't be renter-operated, and over 33 ft must be captained (enforced automatically). Drafts and submitted listings are stored in the browser (localStorage) for the demo.
 
 ## Folder structure
 
 ```
-index.html … confirmation.html   10 pages
+index.html … owner-dashboard.html   13 pages
 assets/
   css/app.css                    small custom CSS (reveal animations, accordion, header states)
   js/tailwind.config.js          brand theme (colors, fonts) → becomes tailwind.config.js / @theme
@@ -114,7 +118,15 @@ settings       tax_rate, deposit_rate, balance_due_days, weekend_multiplier, …
 - Emails: confirmation (with the .ics attached), captain reminder at 24h, balance receipt.
 
 ### 4. Admin dashboard (suggested: Filament)
-Resources: Yachts (with image uploads), Experiences, Add-ons, Harbors, Bookings (calendar view + status), Blackout dates, Promo codes, Settings, Contact leads. Filament gives tables, forms and a calendar widget quickly.
+Resources: Yachts (with image uploads), Experiences, Add-ons, Harbors, Bookings (calendar view + status), Blackout dates, Promo codes, Settings, Contact leads, **Owner listings (approve / reject)**. Filament gives tables, forms and a calendar widget quickly.
+
+### 5. List Your Boat (owner listings)
+- Requires login: owners register first (Laravel Breeze), `users.role = owner`. The "Your details" card on the review step is replaced by the logged-in user.
+- `listings` table: `user_id, status (draft|pending|approved|rejected), step, insurance_type, location_* , title, description, cancellation_policy, rules (json), features (json), extras (json), navigation (json), specs_* , availability (json), advance_notice, multi_booking, buffer, operators (json), durations (json), fuel_policy, insurance_owner (json), insurance_boat (json), commercial_insurance (json), submitted_at, approved_at`
+- `listing_photos`: `listing_id, path, sort` (first = cover). Upload to `storage/app/public/listings/{id}`.
+- Wizard: one route `/list-your-boat/{listing?}/{step?}`, `PATCH` per step (form request per step for validation), so drafts are saved server-side like the mockup's auto-save.
+- Admin approves a listing → it becomes a `yachts` row (or `yachts.listing_id`), where the team sets pricing, captain fee and experiences before it appears in the public fleet.
+- Wizard options (`CYB.data.listing` in `data.js`) → `config/listing.php`.
 
 
 

@@ -181,6 +181,33 @@ CYB.data = {
     { id: 'ice', name: 'Cooler & ice package', desc: 'Two coolers stocked with ice & water', price: 45, unit: 'flat', icon: 'snowflake' },
   ],
 
+  /* "List your boat" wizard options.
+     Laravel: config/listing.php (or lookup tables) — editable from the admin dashboard. */
+  listing: {
+    steps: ['Boat details (4 boat photos minimum)', 'Availability', 'Operators and durations', 'Insurance information if applicable', 'Review and submit'],
+    locationTypes: ['Marina slip', 'Marina dry storage', 'Marina rack storage', 'Marina mooring', 'Residence trailer', 'Residence slip', 'Residence mooring', 'Other'],
+    countries: ['United States', 'Canada'],
+    states: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'],
+    cancellation: [
+      { id: 'flexible', name: 'Flexible', badge: 'Recommended', points: ['Free cancellations until 24 hours before the booking start time.', 'Cancellations within 24 hours of the booking start time are non-refundable.'] },
+      { id: 'moderate', name: 'Moderate', points: ['Free cancellations until 5 days before the booking start time.', '50% refund for cancellations between 3–5 days before the booking start time.', 'Cancellations within 2 days of the booking start time are non-refundable.'] },
+      { id: 'strict', name: 'Strict', points: ['Free cancellations until 30 days before the booking start time.', '50% refund for cancellations between 15–30 days before the booking start time.', 'Cancellations within 14 days of the booking start time are non-refundable.'] },
+    ],
+    rules: ['Shoes', 'Glass bottles', 'Fishing', 'Pets', 'Kids under 12', 'Smoking', 'Alcohol', 'Liveaboard', 'Swimming', 'Red wine'],
+    features: ['Air conditioning', 'Anchor', 'Bathroom', 'Bluetooth audio', 'Cooler / ice chest', 'Deck shower', 'Fish finder', 'Grill', 'Livewell / baitwell', 'Refrigerator', 'Rod holders', 'Shower', 'Stereo', 'Stereo AUX input', 'Swim ladder', 'WiFi'],
+    extras: ['Lily pad / float', 'Paddleboard', 'Kayak', 'Tube', 'Water skis', 'Wakeboard', 'Snorkeling gear', 'Fishing gear'],
+    navigation: ['GPS', 'Chartplotter', 'Depth finder', 'VHF radio', 'Radar', 'Autopilot', 'Bow thruster', 'Compass'],
+    makes: ['Azimut', 'Bayliner', 'Beneteau', 'Boston Whaler', 'Carver', 'Catalina', 'Chaparral', 'Cobalt', 'Cruisers Yachts', 'Formula', 'Grady-White', 'Hatteras', 'Jeanneau', 'Lagoon', 'Leopard', 'Malibu', 'MasterCraft', 'Meridian', 'Prestige', 'Princess', 'Regal', 'Sea Ray', 'Sunseeker', 'Tiara', 'Viking', 'Other'],
+    types: ['Power', 'Sail'],
+    categories: ['Airboat', 'Aluminum fishing', 'Angler', 'Bass boat', 'Bow rider', 'Catamaran', 'Center console', 'Classic', 'Cruiser', 'Cuddy cabin', 'Daysailer', 'Deck boat', 'Dual console', 'Electric boat', 'Express cruiser', 'Flats boat', 'Flybridge', 'Houseboat', 'Jet boat', 'Mega yacht', 'Motor yacht', 'Pontoon', 'Power catamaran', 'Sailboat', 'Ski & wakeboard', 'Sport fishing', 'Trawler', 'Walkaround', 'Other'],
+    engineTypes: ['Inboard', 'Outboard', 'Inboard/Outboard (sterndrive)', 'Jet drive', 'Pod drive', 'V-drive', 'Electric'],
+    advanceNotice: [['1h', '1 hour'], ['3h', '3 hours'], ['6h', '6 hours'], ['12h', '12 hours'], ['1d', '1 day'], ['3d', '3 days'], ['7d', '7 days']],
+    buffers: [['30m', '30 min'], ['1h', '1 hour'], ['2h', '2 hours'], ['3h', '3 hours']],
+    durations: [2, 3, 4, 6, 8],
+    liability: ['$300,000', '$500,000', '$1,000,000', '$2,000,000+'],
+    sampleOwnerPhotos: ['assets/images/yacht-golden-hour.jpg', 'assets/images/cockpit.jpg', 'assets/images/deck-lounge.jpg', 'assets/images/interior-salon.jpg'],
+  },
+
   pricing: {
     weekendMultiplier: 1.15, // Fri, Sat, Sun
     taxRate: 0.09,
